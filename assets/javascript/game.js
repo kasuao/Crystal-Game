@@ -33,6 +33,7 @@ console.log("Crystal 4 is worth " + crystal4);
 
 //onclicks
 $("#crystal1").on("click", function(){
+	console.log("this button click works!");
 	score += crystal1;
 
 });
