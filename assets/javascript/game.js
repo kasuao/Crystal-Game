@@ -10,6 +10,34 @@ var score = 0;
 var wins = 0;
 var losses = 0;
 
+function checker() {
+	if (score === randomNum) {
+	wins ++;
+	console.log("You Got it!");
+	$("#wins").html("wins: " + wins);
+	$("#message").html("You WIN!");
+	randomNum = Math.floor((Math.random() * 101) + 19);
+	console.log(randomNum);
+	$("#randomNum").html(randomNum);
+	score = 0;
+// } else {
+// 	console.log("still not reading 'true' statement");
+} else
+//losses
+if (score > randomNum) {
+	losses++;
+	console.log(losses);
+	$("#losses").html("losses: " + losses);
+	$("#message").html("You Lose!");
+	randomNum = Math.floor((Math.random() * 101) + 19);
+	console.log(randomNum);
+	$("#randomNum").html(randomNum);
+	score = 0;
+	};
+};
+
+
+
 //at start of the game
 $("#score").html(score);
 //random number is generated
@@ -18,6 +46,7 @@ console.log(randomNum);
 $("#randomNum").html(randomNum);
 
 //random crystals generated
+
 var crystal1 = Math.floor((Math.random() * 12) + 1);
 console.log("Crystal 1 is worth " + crystal1);
 
@@ -38,40 +67,32 @@ $("#crystal1").on("click", function(){
 	console.log("Crystal 1 button click works!");
 	score += crystal1;
 	$("#score").html(score);
+	checker();
 });
 
 $("#crystal2").on("click", function(){
 	console.log("Crystal 2 button click works!");
 	score += crystal2;
 	$("#score").html(score);
+	checker();
 });
 
 $("#crystal3").on("click", function(){
 	console.log("Crystal 3 button click works!");
 	score += crystal3;
 	$("#score").html(score);
+	checker();
 });
 
 $("#crystal4").on("click", function(){
 	console.log("Crystal 4 button click works!");
 	score += crystal4;
 	$("#score").html(score);
+	checker();
+	// console.log(score + "," + randomNum);	
+//wins and losses
+//win
+
 });
 
-//wins and losses
-//wins
-if (score == randomNum) {
-	wins ++;
-	console.log("You Got it!");
-	$("#wins").html("wins: " + wins);
-	$("#message").html("You WIN!");
-} else {
-	console.log("keep going");
-}
-//losses
-if (score > randomNum) {
-	losses++;
-	console.log(losses);
-	$("#losses").html("losses: " + losses);
-	$("#message").html("You Lose!");
-}
+
